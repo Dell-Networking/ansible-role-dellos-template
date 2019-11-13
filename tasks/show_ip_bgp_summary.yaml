@@ -13,10 +13,9 @@
 
   - name: PARSE THE OUTPUT for {{ ansible_network_os }} show_ip_bgp_summary
     textfsm_parser:
-      src: "{{lookup('file', './templates/{{ansible_network_os}}/show_ip_bgp_summary.template')}}"
-      content: "{{ output.stdout[0]  }}"
+      src: "{{ lookup('file', './templates/{{ ansible_network_os }}_show_ip_bgp_summary.template') }}"
+      content: "{{ output.stdout[0] }}"
       name: bgp_facts
     register: result
     vars:
       - ansible_network_os: dellos10
-

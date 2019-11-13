@@ -1,7 +1,7 @@
 TEMPLATE role
 ==============
 
-The dellos-template role provides access to structured data from show commands in devices running Dell EMC Networking Operating Systems.This role facilitates the TEXTFSM parsing engine. TextFSM is a template based state machine . It takes the raw string input from the CLI of network devices  dellos10 , run them through a TEXTFSM template and return structured text in the form of a Python dictionary.
+The dellos_template role provides access to structured data from show commands in devices running Dell EMC Networking Operating Systems.This role facilitates the TEXTFSM parsing engine. TextFSM is a template based state machine . It takes the raw string input from the CLI of network devices  dellos10 , run them through a TEXTFSM template and return structured text in the form of a Python dictionary.
 
 It is highly customizable, because it works with separate template definitions, which contains variables and rules with regular expressions. This library is very helpful to parse any text-based CLI output from network devices.
 
@@ -9,7 +9,7 @@ It is highly customizable, because it works with separate template definitions, 
 Installation
 ------------
 
-    ansible-galaxy install Dell-Networking.dellos-template
+    ansible-galaxy install Dell-Networking.dellos_template
 
 
 Connection variables
@@ -33,24 +33,31 @@ Ansible Dell EMC Networking roles require connection information to establish co
 Dependencies
 ------------
 
-The *dellos-template* role is built on  modules included in the core Ansible code. These modules were added in Ansible version 2.2.0.This role needs textfsm to be installed in the controller,if not it will be installed using ansible pip      module.
+The *dellos_template* role is built on  modules included in the core Ansible code. These modules were added in Ansible version 2.2.0.This role needs textfsm to be installed in the controller,if not it will be installed using ansible pip module.
 
 
 Example playbook
 ----------------
 
-This example uses the *dellos-template* role to parse any text-based CLI output. It creates a *hosts* file with the switch details and corresponding variables. The hosts file should define the *ansible_network_os* variable with corresponding Dell EMC networking OS name.All the supported CLI commands are imported as tasks in tasks/main.yml.
+This example uses the *dellos_template* role to parse any text-based CLI output. It creates a *hosts* file with the switch details and corresponding variables. The hosts file should define the *ansible_network_os* variable with corresponding Dell EMC networking OS name.All the supported CLI commands are imported as tasks in tasks/main.yml.
  
+For the dellos_template role plugins to be used you may need to specify the actual path of role in ansible.cfg file. 
+
+** Sample ansible.cfg**
+
+    action_plugins      = ../../roles/Dell-Networking.dellos-template/action_plugins
+
+
 **Sample hosts file**
 
-    leaf1 ansible_host= <ip_address> ansible_network_os="dellos10"
+    leaf1 ansible_host= <ip_address> ansible_network_os=dellos10 ansible_ssh_user=xxxxx ansible_ssh_pass=xxxxx
 
 
 **Simple playbook to setup system - leaf.yaml**
 
     - hosts: leaf1
       roles:
-         - Dell-Networking.dellos-template
+         - Dell-Networking.dellos_template
 
 
 
@@ -62,7 +69,7 @@ This example uses the *dellos-template* role to parse any text-based CLI output.
       hosts: leaf1
       tasks:
         - import_role:
-            name: Dell-Networking.dellos-template
+            name: Dell-Networking.dellos_template
             tasks_from: show_ip_interface_brief.yaml
  
 

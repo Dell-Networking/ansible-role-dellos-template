@@ -13,10 +13,9 @@
      
   - name: PARSE THE OUTPUT for {{ ansible_network_os }} show_ip_interface_brief 
     textfsm_parser: 
-      src: "{{lookup('file', './templates/{{ansible_network_os}}/show_ip_interface_brief.template')}}" 
+      src: "{{ lookup('file', './templates/{{ ansible_network_os }}_show_ip_interface_brief.template') }}" 
       content: " {{ output.stdout[0] }}" 
       name: ip_interface_facts 
     register: result 
     vars: 
       - ansible_network_os: dellos10 
-
