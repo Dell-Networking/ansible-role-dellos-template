@@ -3,7 +3,7 @@
 galaxy_info:
   role_name: dellos_template
   author: Dell EMC Networking Engineering
-  description: The dellos_temaplte role facilitates to provide the structrued ouptut from CLI in devices running on Dell EMC Networking Operating Systems.
+  description: The dellos_template role facilitates to provide the structured output from CLI in devices running on Dell EMC Networking Operating Systems.
   license:  Apache 2.0
   min_ansible_version: 2.2
 
