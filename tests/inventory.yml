@@ -1,3 +1,4 @@
+---
 spine1 ansible_host=10.11.180.22 ansible_ssh_user=xxxxx ansible_ssh_pass=xxxxx ansible_network_os=dellos10
 
 [spine]
