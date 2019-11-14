@@ -13,9 +13,10 @@
     
  - name: PARSE THE OUTPUT for {{ ansible_network_os }} show_port-channel_summary
    textfsm_parser:
-     src: "{{ lookup('file', './templates/{{ ansible_network_os }}_show_port-channel_summary.template') }}"     
+     src: "{{lookup('file', './templates/{{ansible_network_os}}/show_port-channel_summary.template')}}"     
      content: "{{ output.stdout[0] }}"
      name: port_channel_facts
    register: result
    vars:
      - ansible_network_os: dellos10
+

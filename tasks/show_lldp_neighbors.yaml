@@ -13,9 +13,10 @@
 
   - name: PARSE THE OUTPUT  for {{ ansible_network_os }} show_lldp_neighbors
     textfsm_parser:
-      src: "{{ lookup('file', './templates/{{ ansible_network_os }}_show_lldp_neighbors.template') }}"
+      src: "{{lookup('file', './templates/{{ansible_network_os}}/show_lldp_neighbors.template')}}"
       content: "{{ output.stdout[0] }}"
       name: lldp_facts
     register: result
     vars:
       - ansible_network_os: dellos10
+

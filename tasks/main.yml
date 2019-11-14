@@ -2,6 +2,9 @@
  - name: dellos10 Dell-Networking.dellos-template test 
    import_tasks: show_ip_interface_brief.yaml 
 
+ - name: dellos10 Dell-Networking.dellos-template test 
+   import_tasks: show_vlan.yaml 
+
  - name: dellos10 Dell-Networking.dellos-template test
    import_tasks: show_port-channel_summary.yaml 
 
@@ -14,5 +17,4 @@
  - name: dellos10 Dell-Networking.dellos-template test
    import_tasks: show_ip_bgp_summary.yaml
 
- - name: dellos10 Dell-Networking.dellos-template test 
-   import_tasks: show_vlan.yaml 
+
