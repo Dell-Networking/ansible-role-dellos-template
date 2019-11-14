@@ -14,4 +14,3 @@ Start
   ^(?!Neighbor)${Neighbor}\s+${AS}\s+${MsgRcvd}\s+${MsgSent}\s+${Status}\s+${State} -> Record
 
 EOF 
-
