@@ -1,0 +1,32 @@
+Value VENDOR (\S*)
+Value PRODUCT (\S*)
+Value HARDWARE_VERSION (\S*)
+Value PLATFORM (\S*)
+Value PPID (\S*)
+Value SERVICE_TAG (\S*)
+Value PRODUCT_BASE (\S*)
+Value SERIAL_NUMBER (\S*)
+Value PRODUCT_PART_NUMBER (\S*)
+Value SOFTWARE (\S*)
+Value SOFTWARE_VERSION (\S*)
+Value LICENSE_TYPE (\S*)
+Value LICENSE_DURATION (\S*)
+Value LICENSE_STATUS (\S*)
+Value LICENSE_LOCATION (\S*)
+
+Start
+  ^Vendor\s*Name\s+:\s+${VENDOR}
+  ^Product\s*Name\s+:\s+${PRODUCT}
+  ^Hardware\s*Version\s+:\s+${HARDWARE_VERSION}
+  ^Platform\s*Name\s+:\s+${PLATFORM}
+  ^PPID\s+:\s+${PPID}
+  ^Service\s*Tag\s+:\s+${SERVICE_TAG}
+  ^Product\s*Base\s+:\s+${PRODUCT_BASE}
+  ^Product\s*Serial\s*Number:\s+${SERIAL_NUMBER}
+  ^Product\s*Part\s*Number\s+:\s+${PRODUCT_PART_NUMBER}
+  ^Software\s+:\s+${SOFTWARE}
+  ^Version\s+:\s+${SOFTWARE_VERSION}
+  ^License\s*Type\s+:\s+${LICENSE_TYPE}
+  ^License\s*Duration:\s+${LICENSE_DURATION}
+  ^License\s*Status\s+:\s+${LICENSE_STATUS}
+  ^License\s*location:\s+${LICENSE_LOCATION} -> Record
